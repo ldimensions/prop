@@ -5,11 +5,22 @@ import { UserViewComponent } from './components/user-view/user-view.component';
 import { UserAddComponent } from './components/user-add/user-add.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { TestDirective } from './directives/test.directive';
+import { RouterModule } from '@angular/router';
+import { userRouter } from './user.router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(
+      userRouter
+    )
   ],
-  declarations: [UserListingComponent, UserViewComponent, UserAddComponent, UserEditComponent, TestDirective]
+  declarations: [
+    UserListingComponent, 
+    UserViewComponent, 
+    UserAddComponent, 
+    UserEditComponent, 
+    TestDirective
+  ]
 })
 export class UserModule { }

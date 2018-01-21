@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Http} from "@angular/http";
+
 
 @Component({
   selector: 'app-common-layout',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommonLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
+    this.http.get('https://api.github.com/users/seeschweiler').subscribe(data => {
+      console.log(data);
+    });
   }
 
 }
