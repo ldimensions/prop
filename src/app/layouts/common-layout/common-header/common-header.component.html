@@ -1,6 +1,6 @@
 Common Header
 <nav>
-  <a [routerLink]="['/login']">Login</a>
-  <a [routerLink]="['/user']">User</a>
-  <a [routerLink]="['/property']">Property</a>
+  <span *ngFor="let commonMenu of commonMenus">
+      <a [routerLink]="[commonMenu.routerLink]">{{commonMenu.label}}</a>
+  </span>
 </nav>
