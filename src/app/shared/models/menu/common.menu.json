@@ -1,0 +1,18 @@
+{
+    "home":{
+        "label": "Home", 
+        "routerLink": ""
+    },
+    "login": {
+        "label":"Login", 
+        "routerLink": "/login"
+    },
+    "user": {
+        "label": "User", 
+        "routerLink": "/user"
+    },
+    "property": {
+        "label": "Property", 
+        "routerLink": "/property"
+    }
+}
