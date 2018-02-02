@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from '../../services/login.service';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -17,13 +17,13 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private loginFormBuilder: FormBuilder,
-    private loginService: LoginService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
   ngOnInit() {
 
-    this.loginService.logout();    
+    this.authService.logout();    
 
     this.loginForm = this.loginFormBuilder.group({
       email: ['',[ Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$') ] ],
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     if(!this.loginForm.valid){
       return true;
     }
-    this.loginService.login(this.loginForm.value).subscribe(
+    this.authService.login(this.loginForm.value).subscribe(
       userDetails => {
         console.log(userDetails)
       },

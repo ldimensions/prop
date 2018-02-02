@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 import { environment } from '../../../../../environments/environment';
 
 @Injectable()
-export class LoginService {
+export class AuthService {
 
   public token: string;
   private loginURL = environment.API_URL+'/login';

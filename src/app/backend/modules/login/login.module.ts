@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { TestDirective } from './directives/test.directive';
 import { loginRouter } from './login.router';
-import { LoginService } from './services/login.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import { LoginService } from './services/login.service';
     TestDirective
   ],
   providers: [
-    LoginService    
+    AuthService    
   ]
 })
 export class LoginModule { }
