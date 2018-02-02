@@ -12,9 +12,9 @@ export class CommonLayoutComponent implements OnInit {
   constructor(private http: Http) { }
 
   ngOnInit() {
-    this.http.get('https://api.github.com/users/seeschweiler').subscribe(data => {
-      console.log(data);
-    });
+    // this.http.get('https://api.github.com/users/seeschweiler').subscribe(data => {
+    //   console.log(data);
+    // });
   }
 
 }
