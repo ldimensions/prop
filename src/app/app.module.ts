@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { HttpModule } from '@angular/http';
+import { CookieService } from 'ngx-cookie-service';
+
 
 import { AppComponent } from './app.component';
 import { appRouter } from './app.routing';
@@ -31,7 +33,9 @@ import { PrintHeaderComponent } from './layouts/print-layout/print-header/print-
       //{ enableTracing: true }
     )
   ],
-  providers: [],
+  providers: [
+    CookieService 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
