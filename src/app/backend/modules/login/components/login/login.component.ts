@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         console.log(userDetails)
       },
       error => {
-        console.log(error);
+        console.log('Error: '+error);
         this.loading = false;
       }
     )
