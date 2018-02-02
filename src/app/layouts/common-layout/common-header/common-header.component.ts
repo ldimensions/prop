@@ -16,8 +16,8 @@ export class CommonHeaderComponent implements OnInit {
   private commonMenus: Array<any> = commonMenu;
 
   ngOnInit() {
-    console.log(environment.API_URL);
-    console.log(this.commonMenus);
+    //console.log(environment.API_URL);
+    //console.log(this.commonMenus);
   }
 
 }
