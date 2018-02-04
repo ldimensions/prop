@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AuthService } from '../../services/auth.service';
 
 
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     private loginFormBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private spinnerService: Ng4LoadingSpinnerService    
   ) { }
 
   ngOnInit() {
@@ -39,14 +41,17 @@ export class LoginComponent implements OnInit {
     if(!this.loginForm.valid){
       return true;
     }
+    this.spinnerService.show();    
     this.authService.login(this.loginForm.value).subscribe(
       userDetails => {
         console.log(userDetails);
         this.cookieService.set('userToken','token');
+        this.spinnerService.hide();            
       },
       error => {
         console.log('Error: '+error);
         this.loading = false;
+        //this.spinnerService.hide();                    
       }
     )
   
