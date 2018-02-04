@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { HttpModule } from '@angular/http';
 import { CookieService } from 'ngx-cookie-service';
-
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 import { AppComponent } from './app.component';
 import { appRouter } from './app.routing';
@@ -31,7 +31,8 @@ import { PrintHeaderComponent } from './layouts/print-layout/print-header/print-
     RouterModule.forRoot(
       appRouter,
       //{ enableTracing: true }
-    )
+    ),
+    Ng4LoadingSpinnerModule
   ],
   providers: [
     CookieService 
