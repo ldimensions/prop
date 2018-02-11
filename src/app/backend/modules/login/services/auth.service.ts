@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+//import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -18,14 +19,20 @@ export class AuthService {
     private cookieService: CookieService
   ) { }
 
-  login(loginCred): Observable<Array<any>> {
-    return this.http.post(this.loginURL, loginCred)
+  login(loginCred){
+    //let headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
+    //'Content-Type':'application/json', 
+    //let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    //let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.loginURL, loginCred)    
       .map((res: Response) => res.json())
   }
 
+  
   logout() {
     //localStorage.removeItem('currentUser');
     //this.cookieService.deleteAll();
-}
+  }
 
 }
