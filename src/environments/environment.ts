@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:4200'
+  API_URL: 'http://127.0.0.1:8000/api'//'http://ldimensions.com/property'
 };

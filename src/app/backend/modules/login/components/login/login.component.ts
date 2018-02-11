@@ -13,9 +13,11 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
-  loading = false;
-  returnUrl: string; 
+  public loginForm: FormGroup;
+  public loading:boolean = false;
+  public returnUrl: string; 
+  public errorMsg: string;
+
 
   constructor(
     private loginFormBuilder: FormBuilder,
@@ -37,21 +39,25 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loading = true;
     if(!this.loginForm.valid){
       return true;
     }
+    this.loading = true;
     this.spinnerService.show();    
     this.authService.login(this.loginForm.value).subscribe(
       userDetails => {
-        console.log(userDetails);
-        this.cookieService.set('userToken','token');
-        this.spinnerService.hide();            
+        this.loading = false;
+        this.spinnerService.hide();                    
+        if(userDetails.statusCode == 200){
+          this.cookieService.set('userToken',userDetails.result.token);  
+        }else{
+          this.errorMsg = userDetails.message;
+        }
       },
       error => {
-        console.log('Error: '+error);
-        this.loading = false;
-        //this.spinnerService.hide();                    
+        this.errorMsg = JSON.parse(error._body).message;        
+        this.loading = false;    
+        this.spinnerService.hide();                    
       }
     )
   
