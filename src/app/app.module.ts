@@ -14,6 +14,7 @@ import { CommonFooterComponent } from './layouts/common-layout/common-footer/com
 import { PrintLayoutComponent } from './layouts/print-layout/print-layout.component';
 import { PrintFooterComponent } from './layouts/print-layout/print-footer/print-footer.component';
 import { PrintHeaderComponent } from './layouts/print-layout/print-header/print-header.component';
+import { AuthGuardService } from './backend/shared/guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PrintHeaderComponent } from './layouts/print-layout/print-header/print-
     Ng4LoadingSpinnerModule
   ],
   providers: [
-    CookieService 
+    CookieService,
+    AuthGuardService, 
   ],
   bootstrap: [AppComponent]
 })
